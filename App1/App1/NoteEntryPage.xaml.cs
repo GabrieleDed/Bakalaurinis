@@ -3,7 +3,7 @@ using System.IO;
 using Xamarin.Forms;
 using App1.Models;
 
-namespace App1
+namespace App1 
 {
     public partial class NoteEntryPage : ContentPage
     {
@@ -26,5 +26,10 @@ namespace App1
             await App.Database.DeleteNoteAsync(note);
             await Navigation.PopAsync();
         }
+        void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            
+        }
+        
     }
 }

@@ -24,6 +24,18 @@
         <Editor Placeholder="Enter your note"
                 Text="{Binding Text}"
                 HeightRequest="100" />
+        <Label Text="Užduotys statusas:" />
+        <CheckBox x:Name="checkBox" CheckedChanged="OnCheckBoxCheckedChanged"/>
+        <Label Text="Vykdoma">
+            <Label.Triggers>
+                <DataTrigger TargetType="Label"
+                     Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                     Value="true">
+                    <Setter Property="Text"
+                    Value="Atlikta" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
