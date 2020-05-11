@@ -21,6 +21,14 @@ namespace App1
             listView.ItemsSource = await App.Database.GetNotesAsync();
         }
 
+        async void OnUserClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserPage
+            {
+                BindingContext = new User()
+            });
+        }
+
         async void OnNoteAddedClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NoteEntryPage

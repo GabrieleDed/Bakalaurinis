@@ -8,6 +8,7 @@ namespace App1
     public partial class App : Application
     {
         static NoteDatabase database;
+        static UserDatabase userDatabase;
 
         public static NoteDatabase Database
         {
@@ -20,6 +21,19 @@ namespace App1
                 return database;
             }
         }
+
+        public static UserDatabase UserDatabase
+        {
+            get
+            {
+                if (userDatabase == null)
+                {
+                    userDatabase = new UserDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Notes.db3"));
+                }
+                return userDatabase;
+            }
+        }
+
 
         public App()
         {
