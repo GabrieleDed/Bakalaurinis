@@ -22,13 +22,13 @@ namespace App1
             }
         }
 
-        public static UserDatabase UserDatabase
+        public static UserDatabase User_Database
         {
             get
             {
                 if (userDatabase == null)
                 {
-                    userDatabase = new UserDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Notes.db3"));
+                    userDatabase = new UserDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "User.db3"));
                 }
                 return userDatabase;
             }

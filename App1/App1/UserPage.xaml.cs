@@ -12,18 +12,15 @@ namespace App1
             InitializeComponent();
         }
 
-        async void OnSaveButtonClicked(object sender, EventArgs e)
+        async void OnUserSaveButtonClicked(object sender, EventArgs e)
         {
             var user = (User)BindingContext;
-            await App.UserDatabase.SaveUserAsync(user);
+            await App.User_Database.SaveUserAsync(user);
             await Navigation.PopAsync();
         }
 
         
-        void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-
-        }
+        
 
     }
 }

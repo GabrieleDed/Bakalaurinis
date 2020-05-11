@@ -12,10 +12,13 @@ namespace App1.Data
         public UserDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<User>().Wait();
+            _database.CreateTableAsync<Note>().Wait();
         }
 
-        //need list of all tasks
+        public Task<List<User>> GetUsersAsync()
+        {
+            return _database.Table<User>().ToListAsync();
+        }
 
         public Task<User> GetUserAsync(int id)
         {
@@ -35,5 +38,8 @@ namespace App1.Data
                 return _database.InsertAsync(user);
             }
         }
+
+        
     }
+
 }

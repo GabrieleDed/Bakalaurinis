@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.UserPage"
-             Title="Note Entry">
+             Title="User page">
     <StackLayout Margin="20">
         <Editor Placeholder="Enter your name"
                 Text="{Binding Name}"
@@ -13,10 +13,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Text="Save"
-                    Clicked="OnSaveButtonClicked" />
-            <Button Grid.Column="1"
-                    Text="Delete"
-                    Clicked="OnDeleteButtonClicked"/>
+                    Clicked="OnUserSaveButtonClicked" />
+            
         </Grid>
     </StackLayout>
 </ContentPage>
