@@ -12,7 +12,7 @@ namespace App1.Data
         public UserDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Note>().Wait();
+            _database.CreateTableAsync<User>().Wait();
         }
 
         public Task<List<User>> GetUsersAsync()

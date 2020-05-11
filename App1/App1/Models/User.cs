@@ -3,7 +3,7 @@ using SQLite;
 
 namespace App1.Models
 {
-    class User
+    public class User
     {
         [PrimaryKey, AutoIncrement] 
         public int UserId { get; set; }
