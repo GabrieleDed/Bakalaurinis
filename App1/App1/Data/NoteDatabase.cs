@@ -9,12 +9,26 @@ namespace App1.Data
     {
         readonly SQLiteAsyncConnection _database;
 
+        
+
         public NoteDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Note>().Wait();
         }
+public Task<List<Note>> GetNotesCompletedAsync()
+        {
+            return _database.Table<Note>()
+            .Where(i => i.CompleteStatus == true)
+            .ToListAsync();
+        }
 
+        public Task<List<Note>> GetNotesNotCompletedAsync()
+        {
+            return _database.Table<Note>()
+            .Where(i => i.CompleteStatus == false)
+            .ToListAsync();
+        }
         public Task<List<Note>> GetNotesAsync()
         {
             return _database.Table<Note>().ToListAsync();

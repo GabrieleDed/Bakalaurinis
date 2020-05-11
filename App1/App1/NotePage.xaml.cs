@@ -18,7 +18,8 @@ namespace App1
         {
             base.OnAppearing();
 
-            listView.ItemsSource = await App.Database.GetNotesAsync();
+            listViewCompleted.ItemsSource = await App.Database.GetNotesCompletedAsync();
+            //listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
         }
 
         async void OnUserClicked(object sender, EventArgs e)

@@ -18,7 +18,7 @@
                      Clicked="OnUserClicked" />
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="listView"
+    <ListView x:Name="listViewCompleted"
               Margin="{StaticResource PageMargin}"
               ItemSelected="OnListViewItemSelected">
         <ListView.ItemTemplate>
