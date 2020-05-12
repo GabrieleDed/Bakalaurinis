@@ -17,9 +17,10 @@ namespace App1
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            listViewCompleted.ItemsSource = await App.Database.GetNotesCompletedAsync();
-            //listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
+			
+			listView.ItemsSource = await App.Database.GetNotesAsync();
+            //listViewCompleted.ItemsSource = await App.Database.GetNotesCompletedAsync();
+			//listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
         }
 
         async void OnUserClicked(object sender, EventArgs e)
