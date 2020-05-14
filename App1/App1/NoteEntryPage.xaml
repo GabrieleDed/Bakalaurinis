@@ -42,18 +42,14 @@
                 </Label.Triggers>
         </Label>
         <Label Text=" Kategorija: " />
-        <Picker x:Name="Category" 
-        Title="Kategorija"
-                ItemDisplayBinding="{Binding Name}" >
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Elektra</x:String>
-                    <x:String>Vanduo</x:String>
-                    <x:String>Rūšiavimas</x:String>
-                    
-                </x:Array>
-            </Picker.ItemsSource>
+        <Picker Title="Pasirinkti kategoriją" ItemsSource="{Binding Category}">
+            <Picker.Items>
+                <x:String>Elektra</x:String>
+                <x:String>Vanduo</x:String>
+                <x:String>Rūšiavimas</x:String>
+            </Picker.Items>
         </Picker>
+        <Label Text="{Binding Category} " />
         <Grid>
             
             <Grid.ColumnDefinitions>
