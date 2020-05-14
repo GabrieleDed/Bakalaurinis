@@ -30,6 +30,7 @@
             <CheckBox x:Name="checkBox" IsChecked="{Binding CompleteStatus}" CheckedChanged="OnCheckBoxCheckedChanged"/>
             
         </StackLayout>
+        
         <Label Text="Vykdoma">
                 <Label.Triggers>
                     <DataTrigger TargetType="Label"
@@ -39,14 +40,21 @@
                     Value="Atlikta" />
                     </DataTrigger>
                 </Label.Triggers>
-            </Label>
+        </Label>
+        <Label Text=" Kategorija: " />
+        <Picker x:Name="picker" 
+        Title="Kategorija" >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Elektra</x:String>
+                    <x:String>Vanduo</x:String>
+                    <x:String>Rūšiavimas</x:String>
+                    
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
         <Grid>
-            <Picker x:Name="Gender" HorizontalOptions="FillAndExpand">
-                <Picker.Items>
-                    <x:String>Male</x:String>
-                    <x:String>Female</x:String>
-                </Picker.Items>
-            </Picker>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
