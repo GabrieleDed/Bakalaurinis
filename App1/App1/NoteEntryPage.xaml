@@ -42,8 +42,9 @@
                 </Label.Triggers>
         </Label>
         <Label Text=" Kategorija: " />
-        <Picker x:Name="picker" 
-        Title="Kategorija" >
+        <Picker x:Name="Category" 
+        Title="Kategorija"
+                ItemDisplayBinding="{Binding Name}" >
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Elektra</x:String>
