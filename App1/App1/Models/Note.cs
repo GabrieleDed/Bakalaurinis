@@ -11,5 +11,6 @@ namespace App1.Models
         public DateTime Date { get; set; }
         public bool CompleteStatus { get; set; }
         public int Exp { get; set; }
+        public string Category { get; set; }
     }
 }

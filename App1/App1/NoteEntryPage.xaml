@@ -24,19 +24,29 @@
         <Editor Placeholder="Enter your note"
                 Text="{Binding Text}"
                 HeightRequest="100" />
-        <Label Text="Užduotys statusas:" />
-        <CheckBox x:Name="checkBox" CheckedChanged="OnCheckBoxCheckedChanged"/>
+
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <Label Text="Užduotys statusas:" />
+            <CheckBox x:Name="checkBox" IsChecked="{Binding CompleteStatus}" CheckedChanged="OnCheckBoxCheckedChanged"/>
+            
+        </StackLayout>
         <Label Text="Vykdoma">
-            <Label.Triggers>
-                <DataTrigger TargetType="Label"
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
                      Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
                      Value="true">
-                    <Setter Property="Text"
+                        <Setter Property="Text"
                     Value="Atlikta" />
-                </DataTrigger>
-            </Label.Triggers>
-        </Label>
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
         <Grid>
+            <Picker x:Name="Gender" HorizontalOptions="FillAndExpand">
+                <Picker.Items>
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                </Picker.Items>
+            </Picker>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
