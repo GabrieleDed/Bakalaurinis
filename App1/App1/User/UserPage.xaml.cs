@@ -15,7 +15,7 @@ namespace App1
         async void OnUserSaveButtonClicked(object sender, EventArgs e)
         {
             var user = (User)BindingContext;
-            if ( user == null)
+            if (user == null)
             {
                 user.EXP = 0;
                 user.Level = 0;

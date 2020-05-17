@@ -13,8 +13,8 @@ namespace App1.Menu
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPage : ContentPage
     {
-        public ListView ListView { get { return listView;  } }
-        public List<MasterMenuItem> items;
+        public ListView ListView { get { return listview; } }
+        List<MasterMenuItem> items;
         public MasterPage()
         {
             InitializeComponent();
@@ -24,9 +24,8 @@ namespace App1.Menu
         void SetItems()
         {
             items = new List<MasterMenuItem>();
-            items.Add(new MasterMenuItems("Vartotojo puslapis", "user.png".Color.White, typeof(UserPage)));
-            items.Add(new MasterMenuItems("Neatliktos užduotys", "Tasks.png".Color.White, typeof(NotePage)));
-            items.Add(new MasterMenuItems("Pridėti užduotys", "AddTask.png".Color.White, typeof(NoteEntryPage)));
+            items.Add(new MasterMenuItem("Vartotojo puslapis", "user.png", Color.White, typeof(UserPage)));
+            items.Add(new MasterMenuItem("Neatliktos užduotys", "Tasks.png", Color.White, typeof(NotesPage)));
             ListView.ItemsSource = items;
         }
     }

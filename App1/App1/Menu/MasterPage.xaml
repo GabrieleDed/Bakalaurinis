@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App1.Menu.MasterPage">
+             x:Class="App1.Menu.MasterPage"
+             Title="Gabrielės App">
     <ContentPage.Content>
         <StackLayout x:Name="MasterStack" VerticalOptions="FillAndExpand" >
             <StackLayout x:Name="TopStack" VerticalOptions="FillAndExpand" >
@@ -21,13 +22,13 @@
                                     <Label Grid.Column ="1" Text="Binding Title" TextColor="Black" FontSize="Medium"/>
                                 </Grid>
                             </ViewCell>
-                        </DataTemplate>"
+                        </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            
-            
-            
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

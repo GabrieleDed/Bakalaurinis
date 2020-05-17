@@ -22,11 +22,11 @@ namespace App1
             user = await App.User_Database.GetUserAsync(1);
             if (user != null)
             {
-            userName.Text = user.Name;
-            userEXP.Text = user.EXP.ToString();
-            userLevel.Text = user.Level.ToString();
+                userName.Text = user.Name;
+                userEXP.Text = user.EXP.ToString();
+                userLevel.Text = user.Level.ToString();
             }
-          /**/
+            /**/
             listView.ItemsSource = await App.Database.GetNotesAsync();
             //listViewCompleted.ItemsSource = await App.Database.GetNotesCompletedAsync();
             //listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();

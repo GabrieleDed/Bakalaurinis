@@ -14,3 +14,5 @@ C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\NotePage.xam
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\UserPage.xaml.g.cs
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.csproj.CoreCompileInputs.cache
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Menu\MasterDetail.xaml.g.cs
+C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\Menu\MasterPage.xaml.g.cs

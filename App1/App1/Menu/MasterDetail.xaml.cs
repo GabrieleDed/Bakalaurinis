@@ -20,14 +20,14 @@ namespace App1
             masterpage.ListView.ItemSelected += OnItemSelected;
         }
 
-        void OnItemSelected (object sender, SelectedItemChangedEventArgs e)
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as MasterMenuItems;
-            if(item != null)
+            var item = e.SelectedItem as MasterMenuItem;
+            if (item != null)
             {
-                MasterDetail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
                 masterpage.ListView.SelectedItem = null;
-                IsPresent = false;
+                IsPresented = false;
             }
         }
     }
