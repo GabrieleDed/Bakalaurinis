@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:App1.Views.Menu;assembly=App1xamarin"
+             xmlns:detailviews ="clr-namespace:App1.Views.DetailViews;assembly=App1xamarin"
+             x:Class="App1.MasterDetail">
+    <MasterDetailPage.Master>
+        <Local:MasterPage x:Name="masterpage"/>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <detailviews: UserPage/>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+    
+</MasterDetailPage>

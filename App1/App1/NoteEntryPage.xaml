@@ -28,30 +28,26 @@
         <StackLayout Orientation="Horizontal" Spacing="10">
             <Label Text="Užduotys statusas:" />
             <CheckBox x:Name="checkBox" IsChecked="{Binding CompleteStatus}" CheckedChanged="OnCheckBoxCheckedChanged"/>
-            
+
         </StackLayout>
-        
+
         <Label Text="Vykdoma">
-                <Label.Triggers>
-                    <DataTrigger TargetType="Label"
-                     Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
-                     Value="true">
-                        <Setter Property="Text"
-                    Value="Atlikta" />
-                    </DataTrigger>
-                </Label.Triggers>
+            <Label.Triggers>
+                <DataTrigger TargetType="Label"
+                         Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                         Value="true">
+                    <Setter Property="Text"
+                        Value="Atlikta" />
+                </DataTrigger>
+            </Label.Triggers>
         </Label>
+
+
         <Label Text=" Kategorija: " />
-        <Picker Title="Pasirinkti kategoriją" ItemsSource="{Binding Category}">
-            <Picker.Items>
-                <x:String>Elektra</x:String>
-                <x:String>Vanduo</x:String>
-                <x:String>Rūšiavimas</x:String>
-            </Picker.Items>
-        </Picker>
+        <Picker x:Name="categoryPicker" Title="Pasirinkti kategoriją" SelectedIndexChanged="OnPickerSelectedIndexChanged" SelectedItem="{Binding Category}" />
         <Label Text="{Binding Category} " />
         <Grid>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />

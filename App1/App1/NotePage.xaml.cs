@@ -9,6 +9,7 @@ namespace App1
 {
     public partial class NotesPage : ContentPage
     {
+        User user = new User();
         public NotesPage()
         {
             InitializeComponent();
@@ -17,18 +18,36 @@ namespace App1
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-			
-			listView.ItemsSource = await App.Database.GetNotesAsync();
+
+            user = await App.User_Database.GetUserAsync(1);
+            if (user != null)
+            {
+            userName.Text = user.Name;
+            userEXP.Text = user.EXP.ToString();
+            userLevel.Text = user.Level.ToString();
+            }
+          /**/
+            listView.ItemsSource = await App.Database.GetNotesAsync();
             //listViewCompleted.ItemsSource = await App.Database.GetNotesCompletedAsync();
-			//listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
+            //listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
         }
 
         async void OnUserClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UserPage
+            if (user != null)
             {
-                BindingContext = new User()
-            });
+                await Navigation.PushAsync(new UserPage
+                {
+                    BindingContext = user as User
+                });
+            }
+            else
+            {
+                await Navigation.PushAsync(new UserPage
+                {
+                    BindingContext = new User()
+                });
+            }
         }
 
         async void OnNoteAddedClicked(object sender, EventArgs e)
