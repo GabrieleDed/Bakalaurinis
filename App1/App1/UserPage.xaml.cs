@@ -17,6 +17,7 @@ namespace App1
             base.OnAppearing();
 
             user = await App.User_Database.GetUserAsync(1);
+            await this.expBar.ProgressTo(user.EXP / 100, 500, Easing.Linear);
             if (user != null)
             {
                 userName.Text = user.Name;
