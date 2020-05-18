@@ -27,9 +27,9 @@ namespace App1
                 userLevel.Text = user.Level.ToString();
             }
             /**/
-            listView.ItemsSource = await App.Database.GetNotesAsync();
+            //listView.ItemsSource = await App.Database.GetNotesAsync();
             //listViewCompleted.ItemsSource = await App.Database.GetNotesCompletedAsync();
-            //listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
+            listView.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
         }
 
         async void OnUserClicked(object sender, EventArgs e)

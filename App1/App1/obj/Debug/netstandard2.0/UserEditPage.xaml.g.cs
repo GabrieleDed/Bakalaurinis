@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("App1.User.UserPage.xaml", "User/UserPage.xaml", typeof(global::App1.UserPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("App1.UserEditPage.xaml", "UserEditPage.xaml", typeof(global::App1.UserEditPage))]
 
 namespace App1 {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("User\\UserPage.xaml")]
-    public partial class UserPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("UserEditPage.xaml")]
+    public partial class UserEditPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(UserPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(UserEditPage));
         }
     }
 }
