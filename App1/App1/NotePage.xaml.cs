@@ -9,7 +9,6 @@ namespace App1
 {
     public partial class NotesPage : ContentPage
     {
-        User user = new User();
         public NotesPage()
         {
             InitializeComponent();
@@ -19,35 +18,10 @@ namespace App1
         {
             base.OnAppearing();
 
-            user = await App.User_Database.GetUserAsync(1);
-            if (user != null)
-            {
-                userName.Text = user.Name;
-                userEXP.Text = user.EXP.ToString();
-                userLevel.Text = user.Level.ToString();
-            }
             /**/
             //listView.ItemsSource = await App.Database.GetNotesAsync();
             //listViewCompleted.ItemsSource = await App.Database.GetNotesCompletedAsync();
             listView.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
-        }
-
-        async void OnUserClicked(object sender, EventArgs e)
-        {
-            if (user != null)
-            {
-                await Navigation.PushAsync(new UserPage
-                {
-                    BindingContext = user as User
-                });
-            }
-            else
-            {
-                await Navigation.PushAsync(new UserPage
-                {
-                    BindingContext = new User()
-                });
-            }
         }
 
         async void OnNoteAddedClicked(object sender, EventArgs e)

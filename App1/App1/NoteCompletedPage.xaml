@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.NoteCompletedPage"
-             Title="Completed Notes">
+             Title="Atliktos užduotys">
     <ContentPage.Resources>
         <!-- Implicit styles -->
         <Style TargetType="{x:Type ListView}">
@@ -11,46 +11,41 @@
         </Style>
     </ContentPage.Resources>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+"
-                     Clicked="OnNoteAddedClicked" />
-        
-    </ContentPage.ToolbarItems>
-
-    <Grid BackgroundColor="White">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <ListView x:Name="listView"
-              Grid.Row="1"
+        <Button Grid.Row="0" Text="Pridėti naują užduotį" Clicked="OnNoteAddedClicked" BackgroundColor="CornflowerBlue" TextColor="White"/>
+        <StackLayout Grid.Row="1">
+            <ListView x:Name="listView"
               Margin="{StaticResource PageMargin}"
               ItemSelected="OnListViewItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid ColumnSpacing="5" RowSpacing="0">
-                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding Text}" FontSize="20" TextColor="Black"/>
-                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Category}" FontSize="20" TextColor="DarkBlue"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="5" RowSpacing="0">
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Text}" FontSize="20" TextColor="Black"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Category}" FontSize="20" TextColor="DarkBlue"/>
 
-                            <Label Grid.Column="0" Grid.Row="1" Text="{Binding Date}"/>
-                            <Label Grid.Column="1" Grid.Row="1">
-                                <Label.Triggers>
-                                    <DataTrigger TargetType="Label" Binding="{Binding CompleteStatus}" Value="False">
-                                        <Setter Property="Text" Value="Neįvykdyta"/>
-                                        <Setter Property="TextColor" Value="Red"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Label" Binding="{Binding CompleteStatus}" Value="True">
-                                        <Setter Property="Text" Value="Įvykdyta"/>
-                                        <Setter Property="TextColor" Value="Green"/>
-                                    </DataTrigger>
-                                </Label.Triggers>
-                            </Label>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding Date}"/>
+                                <Label Grid.Column="1" Grid.Row="1">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding CompleteStatus}" Value="False">
+                                            <Setter Property="Text" Value="Neatlikta"/>
+                                            <Setter Property="TextColor" Value="Red"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding CompleteStatus}" Value="True">
+                                            <Setter Property="Text" Value="Atlikta"/>
+                                            <Setter Property="TextColor" Value="Green"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </Grid>
 </ContentPage>

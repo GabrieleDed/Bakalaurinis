@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.NoteEntryPage"
-             Title="Note Entry">
+             Title="Užduoties pridėjimo puslapis">
     <ContentPage.Resources>
         <!-- Implicit styles -->
         <Style TargetType="{x:Type Editor}">
@@ -21,17 +21,17 @@
     </ContentPage.Resources>
 
     <StackLayout Margin="{StaticResource PageMargin}">
-        <Editor Placeholder="Enter your note"
+        <Editor Placeholder="Įveskite užduoties pavadinimą"
                 Text="{Binding Text}"
                 HeightRequest="100" />
 
         <StackLayout Orientation="Horizontal" Spacing="10">
-            <Label Text="Užduotys statusas:" />
+            <Label Text="Užduoties statusas:" />
             <CheckBox x:Name="checkBox" IsChecked="{Binding CompleteStatus}" CheckedChanged="OnCheckBoxCheckedChanged"/>
 
         </StackLayout>
 
-        <Label Text="Vykdoma">
+        <Label Text="Neatlikta">
             <Label.Triggers>
                 <DataTrigger TargetType="Label"
                          Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
@@ -52,10 +52,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Text="Save"
+            <Button Text="Išsaugoti"
                     Clicked="OnSaveButtonClicked" />
             <Button Grid.Column="1"
-                    Text="Delete"
+                    Text="Ištrinti"
                     Clicked="OnDeleteButtonClicked" />
         </Grid>
     </StackLayout>

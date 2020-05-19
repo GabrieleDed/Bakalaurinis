@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.UserEditPage"
-             Title="User Edit page">
+             Title="Vartotojo keitimas">
     <StackLayout Margin="20">
-        <Editor Placeholder="Enter your name"
+        <Editor Placeholder="Įveskite savo vardą"
                 Text="{Binding Name}"
                 HeightRequest="100" />
         <Grid>
@@ -12,7 +12,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Text="Save"
+            <Button Text="Išsaugoti"
                     Clicked="OnUserSaveButtonClicked" />
 
         </Grid>

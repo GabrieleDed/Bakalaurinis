@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local ="clr-namespace:App1.Menu;assembly=App1"
              xmlns:detailviews ="clr-namespace:App1;assembly=App1"
-             x:Class="App1.MasterDetail"
-             Title="Rūšiavimas">
+             x:Class="App1.MasterDetail">
     <MasterDetailPage.Master>
         <local:MasterPage x:Name="masterpage"/>
     </MasterDetailPage.Master>

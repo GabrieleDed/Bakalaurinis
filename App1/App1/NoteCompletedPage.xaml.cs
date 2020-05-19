@@ -9,7 +9,7 @@ namespace App1
 {
     public partial class NoteCompletedPage : ContentPage
     {
-        
+
         public NoteCompletedPage()
         {
             InitializeComponent();
@@ -21,8 +21,6 @@ namespace App1
             listView.ItemsSource = await App.Database.GetNotesCompletedAsync();
             //listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
         }
-
-        
 
         async void OnNoteAddedClicked(object sender, EventArgs e)
         {
