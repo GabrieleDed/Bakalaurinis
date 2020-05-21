@@ -5,11 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="App1.Menu.MasterPage"
-             Title="Gabrielės App">
+             Title="EIPFA">
     <ContentPage.Content>
         <StackLayout x:Name="MasterStack" VerticalOptions="FillAndExpand" >
             <StackLayout x:Name="TopStack" VerticalOptions="FillAndExpand" >
-                <Label Text="Gabrielės App" HorizontalOptions="Center" FontSize="Large"/>
+                <Label Text="EIPFA" HorizontalOptions="Center" FontSize="Large"/>
             </StackLayout>
 
             <StackLayout x:Name="MidStack" VerticalOptions="FillAndExpand" >

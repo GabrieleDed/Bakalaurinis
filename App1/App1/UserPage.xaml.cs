@@ -2,12 +2,13 @@
 using System.IO;
 using Xamarin.Forms;
 using App1.Models;
+using System.Threading.Tasks;
 
 namespace App1
 {
     public partial class UserPage : ContentPage
     {
-        User user = new User();
+        User user;
         public UserPage()
         {
             InitializeComponent();
@@ -17,12 +18,16 @@ namespace App1
             base.OnAppearing();
 
             user = await App.User_Database.GetUserAsync(1);
-            await this.expBar.ProgressTo(user.EXP / 100, 500, Easing.Linear);
             if (user != null)
             {
                 userName.Text = user.Name;
                 userEXP.Text = user.EXP.ToString();
                 userLevel.Text = user.Level.ToString();
+                await expBar.ProgressTo(((double)user.EXP / 100), 500, Easing.Linear);
+            }
+            else
+            {
+                await expBar.ProgressTo(0, 500, Easing.Linear);
             }
         }
 
