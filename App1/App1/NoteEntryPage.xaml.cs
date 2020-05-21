@@ -28,6 +28,7 @@ namespace App1
         {
             note = (Note)BindingContext;
             note.Date = DateTime.UtcNow;
+            note.CompleteTimes = 0;
             AddExpToUser(note.CompleteStatus, note.Category);
             await App.Database.SaveNoteAsync(note);
             await Navigation.PopAsync();
@@ -44,6 +45,7 @@ namespace App1
             if (e.Value)
             {
                 note.CompleteStatus = true;
+                note.CompleteTimes++;
             }
             else
             {

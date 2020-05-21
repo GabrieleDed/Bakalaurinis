@@ -10,7 +10,8 @@ namespace App1.Models
         public string Text { get; set; }
         public DateTime Date { get; set; }
         public bool CompleteStatus { get; set; }
-        public int Exp { get; set; }
         public string Category { get; set; }
+        public int Exp { get; set; }
+        public int CompleteTimes { get; set; }
     }
 }
