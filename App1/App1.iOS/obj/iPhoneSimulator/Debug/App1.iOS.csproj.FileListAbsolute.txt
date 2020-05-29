@@ -1,7 +1,6 @@
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\App1.iOS.exe
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\App1.iOS.pdb
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLite-net.dll
-C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.batteries_green.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.core.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.provider.sqlite3.dll
@@ -62,3 +61,8 @@ C:\Users\gaded\source\repos\App1\App1\App1.iOS\obj\iPhoneSimulator\Debug\XamlC.s
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\obj\iPhoneSimulator\Debug\App1.iOS.csproj.CopyComplete
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\obj\iPhoneSimulator\Debug\App1.iOS.exe
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\obj\iPhoneSimulator\Debug\App1.iOS.pdb
+C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.nativelibrary.dll
+C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\System.Buffers.dll
+C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\System.Memory.dll
+C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\System.Runtime.CompilerServices.Unsafe.dll
