@@ -30,21 +30,6 @@ namespace App1
                 IsPresented = false;
             }
         }
-        protected override async void OnAppearing()
-        {
-            String databasePath = await Database.GetDatabaseFilePath();
-
-            App.db = new Database(databasePath);
-
-            var table = await App.db.DBInstance.CreateTableAsync<Category>();
-
-            // here Category is a class that models the objects 
-            // present in my pre-existent database
-            List<Category> categories = new List<Category>();
-
-            categories = await App.db.DBInstance.Table<Category>().ToListAsync();
-
-            base.OnAppearing();
-        }
+        
     }
 }

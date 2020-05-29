@@ -11,10 +11,8 @@ C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\NoteEntryPag
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\NotePage.xaml.g.cs
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\UserEditPage.xaml.g.cs
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\UserPage.xaml.g.cs
-C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.csproj.CoreCompileInputs.cache
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.AssemblyInfoInputs.cache
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.AssemblyInfo.cs
-C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.dll
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\ref\App1.dll
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.pdb

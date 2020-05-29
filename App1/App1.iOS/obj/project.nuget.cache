@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zNmSv4aDHIVC69zTxED7pwG6a0Bksvis9iJiZ0bCvjhbTWfomZtZ+IQuC6bzXOMdH9Anc1Rpe6Uyh99k0hRQew==",
+  "dgSpecHash": "nGiKvTLkL5xtkb42JqPnPpUiF4VPRB6fi305xLbc2THB4Lm++h4dXmHbnvBn6oN9HgUfpEz445LZSzgibCAfuw==",
   "success": true,
   "projectFilePath": "C:\\Users\\gaded\\source\\repos\\App1\\App1\\App1.iOS\\App1.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\gaded\\.nuget\\packages\\pclstorage\\1.0.2\\pclstorage.1.0.2.nupkg.sha512",
     "C:\\Users\\gaded\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\gaded\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\gaded\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",

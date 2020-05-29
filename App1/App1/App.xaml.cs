@@ -7,10 +7,56 @@ namespace App1
 {
     public partial class App : Application
     {
-        static NoteDatabase database;
-        static UserDatabase userDatabase;
+        //static NoteDatabase database;
+        //static UserDatabase userDatabase;
+        public static readonly object Context;
 
-        public static NoteDatabase Database
+        static DBOperations database;
+
+        public static DBOperations Database
+        {
+            get
+            {
+                try
+                {
+                    if (database == null)
+                    {
+                        var dbName = "EIPFA.db3";
+
+
+                        var sqliteFilename = "EIPFA.db3";
+
+                        IFolder folder = FileSystem.Current.LocalStorage;
+
+                        string path = PortablePath.Combine(folder.Path.ToString(), sqliteFilename);
+
+
+
+
+                        database = new DBOperations(Path.Combine(path));
+                    }
+                    return database;
+                }
+                catch (Exception ex)
+                {
+                    var dbName = "EIPFA.db3";
+
+
+                    var sqliteFilename = "EIPFA.db3";
+
+                    IFolder folder = FileSystem.Current.LocalStorage;
+
+                    string path = PortablePath.Combine(folder.Path.ToString(), sqliteFilename);
+                    System.IO.Directory.CreateDirectory(path);
+
+                    database = new DBOperations(Path.Combine(path));
+                }
+
+                return database;
+            }
+        }
+
+       /* public static NoteDatabase Database
         {
             get
             {
@@ -32,7 +78,7 @@ namespace App1
                 }
                 return userDatabase;
             }
-        }
+        }*/
 
 
         public App()

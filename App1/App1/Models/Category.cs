@@ -10,7 +10,7 @@ namespace App1.Models
         [PrimaryKey, AutoIncrement, Column("CategoryId")]
         public int CategoryId { get; set; }
         [Column("CategoryExp")]
-        public int "CategoryExp" { get; set; }
+        public int CategoryExp { get; set; }
         [MaxLength(250), Column("CategoryName")]
         public string CategoryName { get; set; }
     }
