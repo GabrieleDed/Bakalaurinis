@@ -9,7 +9,7 @@ namespace App1
 {
     public partial class NoteCompletedPage : ContentPage
     {
-
+        List<Note> tasks = new List<Note>();
         public NoteCompletedPage()
         {
             InitializeComponent();
@@ -17,9 +17,8 @@ namespace App1
 
         protected override async void OnAppearing()
         {
-            //listView.ItemsSource = await App.Database.GetNotesAsync();
-            listView.ItemsSource = await App.Database.GetNotesCompletedAsync();
-            //listViewNotCompleted.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
+            tasks = await App.Database.GetNotesCompletedAsync();
+            listView.ItemsSource = tasks;
         }
 
         async void OnNoteAddedClicked(object sender, EventArgs e)

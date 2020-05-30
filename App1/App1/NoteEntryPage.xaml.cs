@@ -9,67 +9,56 @@ namespace App1
 {
     public partial class NoteEntryPage : ContentPage
     {
-        Note note = new Note();
+        Note task = new Note();
         User user = new User();
         List<Category> categories = new List<Category>();
         public NoteEntryPage()
         {
             InitializeComponent();
-            categoryPicker.ItemsSource = categories;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             categories = await App.Database.GetCategoriesAsync();
+            categoryPicker.ItemsSource = categories;
             user = await App.Database.GetUserAsync(1);
         }
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            note = (Note)BindingContext;
-            note.Date = DateTime.UtcNow;
-            note.CompleteTimes = 0;
-            //AddExpToUser(note.CompleteStatus, note.CategoryId);
-            await App.Database.SaveNoteAsync(note);
+            task = (Note)BindingContext;
+            task.Date = DateTime.UtcNow;
+            task.CompleteTimes = 0;
+            AddExpToUser(task.CompleteStatus, task.CategoryId);
+            await App.Database.SaveNoteAsync(task);
             await Navigation.PopAsync();
         }
 
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
-            note = (Note)BindingContext;
-            await App.Database.DeleteNoteAsync(note);
+            task = (Note)BindingContext;
+            await App.Database.DeleteNoteAsync(task);
             await Navigation.PopAsync();
         }
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             if (e.Value)
             {
-                note.CompleteStatus = true;
-                note.CompleteTimes++;
+                task.CompleteStatus = true;
+                task.CompleteTimes++;
             }
             else
             {
-                note.CompleteStatus = false;
+                task.CompleteStatus = false;
             }
         }
 
-        async void AddExpToUser(bool Status, string Category)
+        async void AddExpToUser(bool Status, int CategoryId)
         {
             if (Status)
             {
-                if (Category == "Vanduo")
-                {
-                    user.EXP += 20;
-                }
-                else if (Category == "Elektra")
-                {
-                    user.EXP += 20;
-                }
-                else if (Category == "Rūšiavimas")
-                {
-                    user.EXP += 20;
-                }
+                user.EXP += categories[CategoryId - 1].CategoryExp;
 
                 if (user.EXP >= 100)
                 {
@@ -82,7 +71,11 @@ namespace App1
 
         void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {
-            //note.CategoryId = categoryPicker.Items[categoryPicker.SelectedIndex];
+            int selectedIndex = categoryPicker.SelectedIndex;
+            if (selectedIndex != -1)
+            {
+                task.CategoryId = categories[selectedIndex].CategoryId;
+            }
         }
 
     }

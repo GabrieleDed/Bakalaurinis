@@ -25,9 +25,9 @@ namespace App1
                 {
                     if (database == null)
                     {
-                        var dbName = "EIPFA.db3";
+                        var dbName = "EIPFA1.db3";
 
-                        var sqliteFilename = "EIPFA.db3";
+                        var sqliteFilename = "EIPFA1.db3";
 
                         IFolder folder = FileSystem.Current.LocalStorage;
 
@@ -39,9 +39,9 @@ namespace App1
                 }
                 catch (Exception ex)
                 {
-                    var dbName = "EIPFA.db3";
+                    var dbName = "EIPFA1.db3";
 
-                    var sqliteFilename = "EIPFA.db3";
+                    var sqliteFilename = "EIPFA1.db3";
 
                     IFolder folder = FileSystem.Current.LocalStorage;
 

@@ -54,13 +54,13 @@ namespace App1.Data
         public Task<Note> GetNoteAsync(int id)
         {
             return _database.Table<Note>()
-                            .Where(i => i.ID == id)
+                            .Where(i => i.TaskId == id)
                             .FirstOrDefaultAsync();
         }
 
         public Task<int> SaveNoteAsync(Note note)
         {
-            if (note.ID != 0)
+            if (note.TaskId != 0)
             {
                 return _database.UpdateAsync(note);
             }

@@ -26,7 +26,7 @@
                         <ViewCell>
                             <Grid ColumnSpacing="5" RowSpacing="0">
                                 <Label Grid.Column="0" Grid.Row="0" Text="{Binding Text}" FontSize="20" TextColor="Black"/>
-                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Category}" FontSize="20" TextColor="DarkBlue"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding CategoryId}" FontSize="20" TextColor="DarkBlue"/>
 
                                 <Label Grid.Column="0" Grid.Row="1" Text="{Binding Date,   StringFormat='{0:yyyy - MM - dd }'}" />
                                 <Label Grid.Column="1" Grid.Row="1">

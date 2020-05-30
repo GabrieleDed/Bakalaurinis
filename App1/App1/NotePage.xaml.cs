@@ -9,6 +9,7 @@ namespace App1
 {
     public partial class NotesPage : ContentPage
     {
+        List<Note> tasks = new List<Note>();
         public NotesPage()
         {
             InitializeComponent();
@@ -18,10 +19,8 @@ namespace App1
         {
             base.OnAppearing();
 
-            /**/
-            //listView.ItemsSource = await App.Database.GetNotesAsync();
-            //listViewCompleted.ItemsSource = await App.Database.GetNotesCompletedAsync();
-            listView.ItemsSource = await App.Database.GetNotesNotCompletedAsync();
+            tasks = await App.Database.GetNotesNotCompletedAsync();
+            listView.ItemsSource = tasks;
         }
 
         async void OnNoteAddedClicked(object sender, EventArgs e)

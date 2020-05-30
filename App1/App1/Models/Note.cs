@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.SqlTypes;
+using System.Numerics;
 using SQLite;
 
 namespace App1.Models
@@ -7,8 +9,8 @@ namespace App1.Models
     public class Note
     {
         [PrimaryKey, AutoIncrement, Column("TaskId")]
-        public int ID { get; set; }
-        [MaxLength(250), Column("Name")]
+        public int TaskId { get; set; }
+        [MaxLength(250), Column("Text")]
         public string Text { get; set; }
         [MaxLength(250), Column("Description")]
         public string Description { get; set; }
@@ -16,10 +18,6 @@ namespace App1.Models
         public DateTime Date { get; set; }
         [Column("CompleteStatus")]
         public bool CompleteStatus { get; set; }
-        [Column("Exp")]
-        public int Exp { get; set; }
-        [Column("Level")]
-        public int Level { get; set; }
         [Column("CategoryId")]
         public int CategoryId { get; set; }
         [Column("CompleteTimes")]

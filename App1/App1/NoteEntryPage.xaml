@@ -23,7 +23,11 @@
     <StackLayout Margin="{StaticResource PageMargin}">
         <Editor Placeholder="Įveskite užduoties pavadinimą"
                 Text="{Binding Text}"
-                HeightRequest="100" />
+                HeightRequest="50" />
+
+        <Editor Placeholder="Įveskite užduoties aprašą"
+                Text="{Binding Description}"
+                HeightRequest="150" />
 
         <StackLayout Orientation="Horizontal" Spacing="10">
             <Label Text="Užduoties statusas:" />
@@ -44,10 +48,10 @@
 
 
         <Label Text=" Kategorija: " />
-        <Picker x:Name="categoryPicker" Title="Pasirinkti kategoriją"
-                SelectedIndexChanged="OnPickerSelectedIndexChanged" 
-                SelectedItem="{Binding CategoryName}" />
-        <Label Text="{Binding CategoryName} " />
+        <Picker x:Name="categoryPicker" Title="Pasirinkti kategoriją" SelectedIndexChanged="OnPickerSelectedIndexChanged"
+                SelectedItem="{Binding CategoryId}"
+                ItemDisplayBinding="{Binding CategoryName}"/>
+        <Label Text="{Binding Category} " />
         <Grid>
 
             <Grid.ColumnDefinitions>
