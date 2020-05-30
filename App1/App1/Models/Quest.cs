@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace App1.Models
 {
@@ -11,9 +12,6 @@ namespace App1.Models
         public int QuestId { get; set; }
         [MaxLength(250), Column("QName")]
         public string QName { get; set; }
-        [MaxLength(250), Column("Description")]
-        [Column("CategoryId")]
-        public int CategoryId { get; set; }
         [Column("Date")]
         public DateTime Date { get; set; }
         [Column("CompleteStatus")]

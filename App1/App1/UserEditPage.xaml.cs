@@ -26,7 +26,7 @@ namespace App1
                 user.EXP = 0;
                 user.Level = 0;
             }
-            await App.User_Database.SaveUserAsync(user);
+            await App.Database.SaveUserAsync(user);
             await Navigation.PopAsync();
         }
     }

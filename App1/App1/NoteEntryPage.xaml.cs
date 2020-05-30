@@ -3,6 +3,7 @@ using System.IO;
 using Xamarin.Forms;
 using App1.Models;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace App1
 {
@@ -10,18 +11,18 @@ namespace App1
     {
         Note note = new Note();
         User user = new User();
+        List<Category> categories = new List<Category>();
         public NoteEntryPage()
         {
             InitializeComponent();
-            categoryPicker.Items.Add("Vanduo");
-            categoryPicker.Items.Add("Elektra");
-            categoryPicker.Items.Add("Rūšiavimas");
+            categoryPicker.ItemsSource = categories;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            user = await App.User_Database.GetUserAsync(1);
+            categories = await App.Database.GetCategoriesAsync();
+            user = await App.Database.GetUserAsync(1);
         }
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
@@ -29,7 +30,7 @@ namespace App1
             note = (Note)BindingContext;
             note.Date = DateTime.UtcNow;
             note.CompleteTimes = 0;
-            AddExpToUser(note.CompleteStatus, note.Category);
+            //AddExpToUser(note.CompleteStatus, note.CategoryId);
             await App.Database.SaveNoteAsync(note);
             await Navigation.PopAsync();
         }
@@ -75,13 +76,13 @@ namespace App1
                     user.Level += 1;
                     user.EXP -= 100;
                 }
-                await App.User_Database.SaveUserAsync(user);
+                await App.Database.SaveUserAsync(user);
             }
         }
 
         void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {
-            note.Category = categoryPicker.Items[categoryPicker.SelectedIndex];
+            //note.CategoryId = categoryPicker.Items[categoryPicker.SelectedIndex];
         }
 
     }

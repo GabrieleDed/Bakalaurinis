@@ -17,7 +17,7 @@ namespace App1
         {
             base.OnAppearing();
 
-            user = await App.User_Database.GetUserAsync(1);
+            user = await App.Database.GetUserAsync(1);
             if (user != null)
             {
                 userName.Text = user.Name;

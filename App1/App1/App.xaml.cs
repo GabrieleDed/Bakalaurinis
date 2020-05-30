@@ -2,6 +2,10 @@
 using System.IO;
 using Xamarin.Forms;
 using App1.Data;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using SQLite;
+using PCLStorage;
 
 namespace App1
 {
@@ -23,15 +27,11 @@ namespace App1
                     {
                         var dbName = "EIPFA.db3";
 
-
                         var sqliteFilename = "EIPFA.db3";
 
                         IFolder folder = FileSystem.Current.LocalStorage;
 
                         string path = PortablePath.Combine(folder.Path.ToString(), sqliteFilename);
-
-
-
 
                         database = new DBOperations(Path.Combine(path));
                     }
@@ -40,7 +40,6 @@ namespace App1
                 catch (Exception ex)
                 {
                     var dbName = "EIPFA.db3";
-
 
                     var sqliteFilename = "EIPFA.db3";
 

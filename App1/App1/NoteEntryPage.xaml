@@ -44,8 +44,10 @@
 
 
         <Label Text=" Kategorija: " />
-        <Picker x:Name="categoryPicker" Title="Pasirinkti kategoriją" SelectedIndexChanged="OnPickerSelectedIndexChanged" SelectedItem="{Binding Category}" />
-        <Label Text="{Binding Category} " />
+        <Picker x:Name="categoryPicker" Title="Pasirinkti kategoriją"
+                SelectedIndexChanged="OnPickerSelectedIndexChanged" 
+                SelectedItem="{Binding CategoryName}" />
+        <Label Text="{Binding CategoryName} " />
         <Grid>
 
             <Grid.ColumnDefinitions>

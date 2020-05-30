@@ -3,7 +3,6 @@ C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\App1.iO
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLite-net.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.core.dll
-C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.provider.sqlite3.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\Xamarin.Essentials.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\Xamarin.Essentials.pdb
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.dll
@@ -66,3 +65,5 @@ C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\SQLiteP
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\System.Buffers.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\System.Memory.dll
 C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\PCLStorage.Abstractions.dll
+C:\Users\gaded\source\repos\App1\App1\App1.iOS\bin\iPhoneSimulator\Debug\PCLStorage.dll
