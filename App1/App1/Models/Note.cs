@@ -9,10 +9,10 @@ namespace App1.Models
     public class Note
     {
         [PrimaryKey, AutoIncrement, Column("TaskId")]
-        public int TaskId { get; set; }
-        [MaxLength(250), Column("Text")]
+        public int? TaskId { get; set; }
+        [ Column("Text")]
         public string Text { get; set; }
-        [MaxLength(250), Column("Description")]
+        [ Column("Description")]
         public string Description { get; set; }
         [Column("Date")]
         public DateTime Date { get; set; }
