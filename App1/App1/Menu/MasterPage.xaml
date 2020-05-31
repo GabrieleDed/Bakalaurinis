@@ -13,13 +13,20 @@
             </StackLayout>
 
             <StackLayout x:Name="MidStack" VerticalOptions="FillAndExpand" >
-                <ListView x:Name="listview" SeparatorVisibility="None">
+                <ListView x:Name="listview" SeparatorVisibility="Default">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid BackgroundColor="{Binding BackgroundColor}">
-                                    <Image Grid.Column="0" Source="{Binding IconSource}" Margin ="0,10,0,10"/>
-                                    <Label Grid.Column="1" Text="{Binding Title}" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                                <Grid BackgroundColor="{Binding BackgroundColor}"  >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="64"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0" Source="{Binding IconSource}" HeightRequest="48"  WidthRequest="48" Aspect="Fill" />
+                                    <Label Grid.Column="1" Text="{Binding Title}" TextColor="Black" FontSize="Large" HorizontalTextAlignment="Start"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

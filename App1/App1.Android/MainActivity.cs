@@ -1,10 +1,7 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using System.IO;
 
@@ -23,7 +20,7 @@ namespace App1.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            string dbPath = FileAccessHelper.GetLocalFilePath("EIPFA1.db3");
+            string dbPath = FileAccessHelper.GetLocalFilePath("EIPFAv0.db3");
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -52,7 +49,7 @@ namespace App1.Droid
             {
                 if (!File.Exists(dbPath))
                 {
-                    using (var br = new BinaryReader(Application.Context.Assets.Open("EIPFA1.db3")))
+                    using (var br = new BinaryReader(Application.Context.Assets.Open("EIPFAv0.db3")))
                     {
                         using (var bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
                         {

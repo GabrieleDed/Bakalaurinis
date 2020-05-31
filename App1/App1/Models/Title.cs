@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
 namespace App1.Models
 {
     [Table("Title")]
     public class Title
     {
-        [PrimaryKey, AutoIncrement, Column("UserId")]
+        [PrimaryKey, AutoIncrement, Column("TitleId")]
         public int TitleId { get; set; }
         [Column("Level")]
         public int Level { get; set; }

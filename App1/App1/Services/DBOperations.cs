@@ -1,7 +1,6 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using App1.Models;
 using System.Threading.Tasks;
 
@@ -15,8 +14,10 @@ namespace App1.Data
         {
             try
             {
+                // Sujungiama su DB
                 _database = new SQLiteAsyncConnection(dbPath);
 
+                // Sukuriamos lentelės pagal modelius
                 _database.CreateTableAsync<Category>().Wait();
                 _database.CreateTableAsync<Difficulty>().Wait();
                 _database.CreateTableAsync<Note>().Wait();
@@ -109,6 +110,30 @@ namespace App1.Data
         {
             return _database.Table<Category>()
                             .Where(i => i.CategoryId == id)
+                            .FirstOrDefaultAsync();
+        }
+
+        //Difficulty Service
+        public Task<List<Difficulty>> GetDifficulitiesAsync()
+        {
+            return _database.Table<Difficulty>().ToListAsync();
+        }
+        public Task<Difficulty> GetDifficultyAsync(int id)
+        {
+            return _database.Table<Difficulty>()
+                            .Where(i => i.DifficultyId == id)
+                            .FirstOrDefaultAsync();
+        }
+
+        //TaskReUse Service
+        public Task<List<TaskReUse>> GetTaskReUsesAsync()
+        {
+            return _database.Table<TaskReUse>().ToListAsync();
+        }
+        public Task<TaskReUse> GetTaskReUseAsync(int id)
+        {
+            return _database.Table<TaskReUse>()
+                            .Where(i => i.ReUseId == id)
                             .FirstOrDefaultAsync();
         }
     }

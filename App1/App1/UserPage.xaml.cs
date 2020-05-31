@@ -1,8 +1,6 @@
 ﻿using System;
-using System.IO;
 using Xamarin.Forms;
 using App1.Models;
-using System.Threading.Tasks;
 
 namespace App1
 {

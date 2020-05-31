@@ -2,21 +2,16 @@
 using System.IO;
 using Xamarin.Forms;
 using App1.Data;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using SQLite;
 using PCLStorage;
 
 namespace App1
 {
     public partial class App : Application
     {
-        //static NoteDatabase database;
-        //static UserDatabase userDatabase;
-        public static readonly object Context;
-
+        // Apibrežiama DB
         static DBOperations database;
 
+        // Užkraunamas DB failas iš lokacijos, arba sukuriamas
         public static DBOperations Database
         {
             get
@@ -25,9 +20,9 @@ namespace App1
                 {
                     if (database == null)
                     {
-                        var dbName = "EIPFA1.db3";
+                        var dbName = "EIPFAv0.db3";
 
-                        var sqliteFilename = "EIPFA1.db3";
+                        var sqliteFilename = "EIPFAv0.db3";
 
                         IFolder folder = FileSystem.Current.LocalStorage;
 
@@ -39,9 +34,9 @@ namespace App1
                 }
                 catch (Exception ex)
                 {
-                    var dbName = "EIPFA1.db3";
+                    var dbName = "EIPFAv0.db3";
 
-                    var sqliteFilename = "EIPFA1.db3";
+                    var sqliteFilename = "EIPFAv0.db3";
 
                     IFolder folder = FileSystem.Current.LocalStorage;
 
@@ -55,34 +50,11 @@ namespace App1
             }
         }
 
-       /* public static NoteDatabase Database
-        {
-            get
-            {
-                if (database == null)
-                {
-                    database = new NoteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Notes.db3"));
-                }
-                return database;
-            }
-        }
-
-        public static UserDatabase User_Database
-        {
-            get
-            {
-                if (userDatabase == null)
-                {
-                    userDatabase = new UserDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "User.db3"));
-                }
-                return userDatabase;
-            }
-        }*/
-
 
         public App()
         {
             InitializeComponent();
+            // Sukuriamas MasterDetail, kad veiktų navigacijos menu
             MainPage = new NavigationPage(new MasterDetail());
         }
 

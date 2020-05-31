@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
 namespace App1.Models
 {
@@ -12,16 +9,12 @@ namespace App1.Models
         public int QuestId { get; set; }
         [MaxLength(250), Column("QName")]
         public string QName { get; set; }
-        [Column("Date")]
-        public DateTime Date { get; set; }
-        [Column("CompleteStatus")]
-        public bool CompleteStatus { get; set; }
-        [Column("Exp")]
-        public int Exp { get; set; }
-        [Column("Level")]
-        public int Level { get; set; }
         [Column("CategoryId")]
         public int CategoryId { get; set; }
+        [Column("Times")]
+        public int Times { get; set; }
+        [Column("ExpBonus")]
+        public int ExpBonus { get; set; }
         [Column("CompleteTimes")]
         public int CompleteTimes { get; set; }
     }

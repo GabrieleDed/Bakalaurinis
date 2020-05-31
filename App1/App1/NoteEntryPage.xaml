@@ -21,24 +21,26 @@
     </ContentPage.Resources>
 
     <StackLayout Margin="{StaticResource PageMargin}">
-        <Editor Placeholder="Įveskite užduoties pavadinimą"
+        <Editor x:Name="textEditor"
+            Placeholder="Įveskite užduoties pavadinimą"
                 Text="{Binding Text}"
-                HeightRequest="50" />
+                HeightRequest="40" />
 
-        <Editor Placeholder="Įveskite užduoties aprašą"
+        <Editor x:Name="descriptionEditor"
+            Placeholder="Įveskite užduoties aprašą"
                 Text="{Binding Description}"
-                HeightRequest="150" />
+                HeightRequest="120" />
 
         <StackLayout Orientation="Horizontal" Spacing="10">
             <Label Text="Užduoties statusas:" />
-            <CheckBox x:Name="checkBox" IsChecked="{Binding CompleteStatus}" CheckedChanged="OnCheckBoxCheckedChanged"/>
+            <CheckBox x:Name="statusBox" IsChecked="{Binding CompleteStatus}" CheckedChanged="OnCheckBoxCheckedChanged"/>
 
         </StackLayout>
 
         <Label Text="Neatlikta">
             <Label.Triggers>
                 <DataTrigger TargetType="Label"
-                         Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                         Binding="{Binding Source={x:Reference statusBox}, Path=IsChecked}"
                          Value="true">
                     <Setter Property="Text"
                         Value="Atlikta" />
@@ -48,10 +50,17 @@
 
 
         <Label Text=" Kategorija: " />
-        <Picker x:Name="categoryPicker" Title="Pasirinkti kategoriją" SelectedIndexChanged="OnPickerSelectedIndexChanged"
+        <Picker x:Name="categoryPicker" Title="Pasirinkti kategoriją" SelectedIndexChanged="categoryPicker_OnPickerSelectedIndexChanged"
                 SelectedItem="{Binding CategoryId}"
                 ItemDisplayBinding="{Binding CategoryName}"/>
-        <Label Text="{Binding Category} " />
+        <Label Text=" Užduoties sunkumas: " />
+        <Picker x:Name="difficultyPicker" Title="Pasirinkti sunkumą" SelectedIndexChanged="difficultyPicker_OnPickerSelectedIndexChanged"
+                SelectedItem="{Binding DifficultyId}"
+                ItemDisplayBinding="{Binding DifficultyName}"/>
+        <Label Text=" Užduoties tipas: " />
+        <Picker x:Name="taskReUsePicker" Title="Pasirinkti tipą" SelectedIndexChanged="taskReUsePicker_OnPickerSelectedIndexChanged"
+                SelectedItem="{Binding ReUseId}"
+                ItemDisplayBinding="{Binding TaskReUseTime}"/>
         <Grid>
 
             <Grid.ColumnDefinitions>

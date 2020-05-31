@@ -24,9 +24,12 @@ namespace App1.Menu
         void SetItems()
         {
             items = new List<MasterMenuItem>();
-            items.Add(new MasterMenuItem("Vartotojo puslapis", "user.png", Color.White, typeof(UserPage)));
-            items.Add(new MasterMenuItem("Neatliktos užduotys", "task.png", Color.White, typeof(NotesPage)));
-            items.Add(new MasterMenuItem("Atliktos užduotys", "taskcompleted.png", Color.White, typeof(NoteCompletedPage)));
+            items.Add(new MasterMenuItem("Vartotojo puslapis", "User2.png", Color.Transparent, typeof(UserPage)));
+            items.Add(new MasterMenuItem("Neatliktos užduotys", "AddTask2.png", Color.Transparent, typeof(NotesPage)));
+            items.Add(new MasterMenuItem("Atliktos užduotys", "CompleteTask2.png", Color.Transparent, typeof(NoteCompletedPage)));
+            items.Add(new MasterMenuItem("Papildomos užduotys", "Award2.png", Color.Transparent, typeof(QuestPage)));
+            items.Add(new MasterMenuItem("Statistika", "Statistics2.png", Color.Transparent, typeof(StatisticsPage)));
+            
             ListView.ItemsSource = items;
         }
     }

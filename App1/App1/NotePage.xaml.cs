@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Xamarin.Forms;
 using App1.Models;
 
@@ -27,7 +25,7 @@ namespace App1
         {
             await Navigation.PushAsync(new NoteEntryPage
             {
-                BindingContext = new Note()
+                BindingContext = null
             });
         }
 
