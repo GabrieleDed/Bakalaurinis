@@ -7,6 +7,10 @@
         <Editor Placeholder="Įveskite savo vardą"
                 Text="{Binding Name}"
                 HeightRequest="100" />
+        <Label Text="Titulo pakeitimas:" FontSize="18"/>
+        <Picker x:Name="titlePicker" Title="Pasirinkti titulą" SelectedIndexChanged="titlePicker_OnPickerSelectedIndexChanged"
+                SelectedItem="{Binding TitleId}"
+                ItemDisplayBinding="{Binding TitleName}"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

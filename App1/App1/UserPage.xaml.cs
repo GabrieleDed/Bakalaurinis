@@ -16,11 +16,13 @@ namespace App1
             base.OnAppearing();
 
             user = await App.Database.GetUserAsync(1);
+            var title = await App.Database.GetTitleAsync(user.TitleId);
             if (user != null)
             {
                 userName.Text = user.Name;
                 userEXP.Text = user.EXP.ToString();
                 userLevel.Text = user.Level.ToString();
+                userTitle.Text = title.TitleName;
                 await expBar.ProgressTo(((double)user.EXP / 100), 500, Easing.Linear);
             }
             else

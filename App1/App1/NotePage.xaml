@@ -20,20 +20,23 @@
         <StackLayout Grid.Row="1">
             <ListView x:Name="listView"
               Margin="{StaticResource PageMargin}"
-              ItemSelected="OnListViewItemSelected">
+              ItemSelected="OnListViewItemSelected"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="30"/>
                                 </Grid.RowDefinitions>
-                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Text}" FontSize="16" TextColor="Black"/>
-                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding CategoryId}" FontSize="16" TextColor="DarkBlue"/>
-
-                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding Date,   StringFormat='{0:yyyy - MM - dd }'}" />
-                                <Label Grid.Column="1" Grid.Row="1">
+                                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding Text}" FontSize="20" TextColor="Black" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding CategoryName}" FontSize="18" TextColor="DarkSlateBlue" HorizontalOptions="Center" VerticalOptions="Start"/>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DifficultyName}" FontSize="18" TextColor="DarkSlateBlue" HorizontalOptions="Center" VerticalOptions="Start"/>
+                                <Label Grid.Row="2" Grid.Column="0" Text="{Binding Date,   StringFormat='{0:yyyy - MM - dd }'}" FontSize="16" HorizontalOptions="End" VerticalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="1" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center">
                                     <Label.Triggers>
                                         <DataTrigger TargetType="Label" Binding="{Binding CompleteStatus}" Value="False">
                                             <Setter Property="Text" Value="Neatlikta"/>
@@ -45,6 +48,9 @@
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
+                                <Label Grid.Row="3" Grid.Column="0" Text="{Binding TaskReUseTime}" HorizontalOptions="End" VerticalOptions="Start" FontSize="14"/>
+                                <Label Grid.Row="3" Grid.Column="1" Text="Atlikta kartų: " HorizontalOptions="Start" VerticalOptions="Start" FontSize="14"/>
+                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding CompleteTimes}" HorizontalOptions="Center" VerticalOptions="Start" FontSize="14"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

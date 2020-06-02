@@ -136,5 +136,72 @@ namespace App1.Data
                             .Where(i => i.ReUseId == id)
                             .FirstOrDefaultAsync();
         }
+
+        //Title Service
+        public Task<List<Title>> GetTitlesAsync()
+        {
+            return _database.Table<Title>().ToListAsync();
+        }
+        public Task<Title> GetTitleAsync(int id)
+        {
+            return _database.Table<Title>()
+                            .Where(i => i.TitleId == id)
+                            .FirstOrDefaultAsync();
+        }
+        public Task<List<Title>> GetTitlesByLevelAsync(int level)
+        {
+            return _database.Table<Title>()
+                            .Where(i => i.Level <= level)
+                            .ToListAsync();
+        }
+
+        //NoteView Service
+        public Task<List<NoteView>> GetNoteViewsCompletedAsync()
+        {
+            return _database.QueryAsync<NoteView>("select t.TaskId, t.Text, t.Date, t.CompleteStatus, t.CompleteTimes, " +
+                "c.CategoryName, d.DifficultyName, r.TaskReUseTime " +
+                "from Task t inner join Category c on t.CategoryId = c.CategoryId " +
+                "inner join Difficulty d on t.DifficultyId = d.DifficultyId " +
+                "inner join TaskReUse r on t.ReUseId = r.ReUseId " +
+                "where t.CompleteStatus = true");
+        }
+        public Task<List<NoteView>> GetNoteViewsNotCompletedAsync()
+        {
+            return _database.QueryAsync<NoteView>("select t.TaskId, t.Text, t.Date, t.CompleteStatus, t.CompleteTimes, " +
+                "c.CategoryName, d.DifficultyName, r.TaskReUseTime " +
+                "from Task t inner join Category c on t.CategoryId = c.CategoryId " +
+                "inner join Difficulty d on t.DifficultyId = d.DifficultyId " +
+                "inner join TaskReUse r on t.ReUseId = r.ReUseId " +
+                "where t.CompleteStatus = false");
+        }
+
+        //Quest Service
+        public Task<List<Quest>> GetQuestsAsync()
+        {
+            return _database.Table<Quest>().ToListAsync();
+        }
+        public Task<List<Quest>> GetQuestsByCategoryAsync(int id)
+        {
+            return _database.Table<Quest>()
+                            .Where(i => i.CategoryId == id)
+                            .ToListAsync();
+        }
+        public Task<Quest> GetQuestAsync(int id)
+        {
+            return _database.Table<Quest>()
+                            .Where(i => i.QuestId == id)
+                            .FirstOrDefaultAsync();
+        }
+        public Task<int> SaveQuestAsync(Quest quest)
+        {
+            if (quest.QuestId != 0)
+            {
+                return _database.UpdateAsync(quest);
+            }
+            else
+            {
+                return _database.InsertAsync(quest);
+            }
+        }
     }
 }

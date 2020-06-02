@@ -7,7 +7,8 @@ namespace App1
 {
     public partial class NotesPage : ContentPage
     {
-        List<Note> tasks = new List<Note>();
+        List<NoteView> tasksView = new List<NoteView>();
+
         public NotesPage()
         {
             InitializeComponent();
@@ -17,8 +18,9 @@ namespace App1
         {
             base.OnAppearing();
 
-            tasks = await App.Database.GetNotesNotCompletedAsync();
-            listView.ItemsSource = tasks;
+            tasksView = await App.Database.GetNoteViewsNotCompletedAsync();
+
+            listView.ItemsSource = tasksView;
         }
 
         async void OnNoteAddedClicked(object sender, EventArgs e)
@@ -33,11 +35,14 @@ namespace App1
         {
             if (e.SelectedItem != null)
             {
+                var note = await App.Database.GetNoteAsync(tasksView[e.SelectedItemIndex].TaskId);
                 await Navigation.PushAsync(new NoteEntryPage
                 {
-                    BindingContext = e.SelectedItem as Note
+                    BindingContext = note as Note
                 });
             }
         }
+
+        
     }
 }

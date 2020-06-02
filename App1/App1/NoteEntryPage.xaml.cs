@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using App1.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace App1
 {
@@ -13,6 +14,8 @@ namespace App1
         List<Category> categories = new List<Category>();
         List<Difficulty> difficulties = new List<Difficulty>();
         List<TaskReUse> taskReUses = new List<TaskReUse>();
+        List<Quest> quests = new List<Quest>();
+        Boolean initialCompleteStatus;
         public NoteEntryPage()
         {
             // Užkraunamas komponentas
@@ -28,6 +31,7 @@ namespace App1
             categories = await App.Database.GetCategoriesAsync();
             difficulties = await App.Database.GetDifficulitiesAsync();
             taskReUses = await App.Database.GetTaskReUsesAsync();
+            quests = await App.Database.GetQuestsAsync();
 
             // Užpildomi pickers duomenimis
             categoryPicker.ItemsSource = categories;
@@ -47,6 +51,7 @@ namespace App1
             {
                 // Priskiriami visi task duomenys atkeliave iš kito puslapio
                 task = (Note)BindingContext;
+                initialCompleteStatus = task.CompleteStatus;
 
                 // Užpildomi picker task duomenimis (-1 nes prasideda nuo 0, DB nuo 1)
                 categoryPicker.SelectedIndex = (task.CategoryId - 1);
@@ -64,11 +69,22 @@ namespace App1
             task.CompleteStatus = statusBox.IsChecked;
             // Užpildomi duomenys pagal default
             task.Date = DateTime.UtcNow;
-            task.CompleteTimes = 0;
+            if (BindingContext != null)
+            {
+                task.CompleteTimes++;
+            } else
+            {
+                task.CompleteTimes = 0;
+            }
             task.TerminationStatus = false;
 
+            quests = quests.Where(q => q.CategoryId == task.CategoryId).ToList();
+
             // Iškviečiamas metodas pridėti exp pagal category
-            AddExpToUser(task.CompleteStatus, task.CategoryId);
+            if (initialCompleteStatus != true)
+            {
+                AddExpToUser(task.CompleteStatus, task.CategoryId, task.DifficultyId);
+            }
 
             // Išsaugojamas task
             await App.Database.SaveNoteAsync(task);
@@ -105,11 +121,32 @@ namespace App1
         }
 
         // Pridedami EXP pagal gautą kategoriją
-        async void AddExpToUser(bool Status, int CategoryId)
+        async void AddExpToUser(bool Status, int CategoryId, int DifficultyId)
         {
             if (Status)
             {
-                user.EXP += categories[CategoryId - 1].CategoryExp;
+                user.EXP += (categories[CategoryId - 1].CategoryExp * difficulties[DifficultyId - 1].DifficultyId);
+
+                foreach (var q in quests)
+                {
+                    q.Times--;
+                    if (q.Times == 0)
+                    {
+                        user.EXP += q.ExpBonus;
+                        q.CompleteTimes++;
+                        if (q.QuestId <= 3)
+                        {
+                            q.Times = 1;
+                        } else if (q.QuestId > 3 && q.QuestId <= 6)
+                        {
+                            q.Times = 2;
+                        } else if (q.QuestId > 6 && q.QuestId <= 9)
+                        {
+                            q.Times = 3;
+                        }
+                    }
+                    await App.Database.SaveQuestAsync(q);
+                }
 
                 if (user.EXP >= 100)
                 {
