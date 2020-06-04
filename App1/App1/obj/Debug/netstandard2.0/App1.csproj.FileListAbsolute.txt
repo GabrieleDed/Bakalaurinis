@@ -19,3 +19,4 @@ C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.csproj.
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\QuestPage.xaml.g.cs
 C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\StatisticsPage.xaml.g.cs
+C:\Users\gaded\source\repos\App1\App1\App1\obj\Debug\netstandard2.0\App1.csprojAssemblyReference.cache
